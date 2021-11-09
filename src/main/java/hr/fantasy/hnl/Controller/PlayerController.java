@@ -44,6 +44,7 @@ public class PlayerController {
     }
 
 /*
+kralj
     @GetMapping(value = "/name", produces = "application/json")
     public Optional<PlayerDTO> getPlayerByName(@RequestParam String name) {
         return playerService.findPlayerByName(name);
