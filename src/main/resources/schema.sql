@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS player;
+CREATE TABLE player(
+    id INT AUTO_INCREMENT  PRIMARY KEY,
+    first_name VARCHAR(250) NOT NULL,
+    last_name VARCHAR(250) NOT NULL,
+    age INTEGER NOT NULL,
+    player_position VARCHAR(250) NOT NULL
+);
