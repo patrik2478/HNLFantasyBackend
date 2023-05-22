@@ -38,6 +38,7 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
+
     @GetMapping(value = "", produces = "application/json")
     public List<PlayerDTO> getAll() {
         return playerService.getAll();
