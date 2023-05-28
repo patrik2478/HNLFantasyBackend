@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Header</title>
+  <style>
+    .header {
+      background-color: #f4f4f4;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-button {
+      margin-right: 10px;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .header-search {
+      margin-left: 10px;
+    }
+
+    .logout-button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logout-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="header-nav">
+    <a class="header-button" href="home.html">Home</a>
+    <a class="header-button" href="/profile">Profile</a>
+    <input class="header-search" type="text" placeholder="Search...">
+  </div>
+  <a class="logout-button" href="/logout">Logout</a>
+</div>
+</body>
+</html>

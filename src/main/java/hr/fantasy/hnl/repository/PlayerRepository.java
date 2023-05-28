@@ -1,6 +1,6 @@
-package hr.fantasy.hnl.Repository;
+package hr.fantasy.hnl.repository;
 
-import hr.fantasy.hnl.Domain.Player;
+import hr.fantasy.hnl.domain.Player;
 
 import java.util.List;
 import java.util.Optional;

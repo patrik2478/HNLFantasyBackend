@@ -1,6 +1,6 @@
-package hr.fantasy.hnl.Repository;
+package hr.fantasy.hnl.repository;
 
-import hr.fantasy.hnl.Domain.Player;
+import hr.fantasy.hnl.domain.Player;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -40,7 +40,6 @@ public class PlayerRepositoryImpl implements  PlayerRepository{
         player.setFirstName(rs.getString("first_name"));
         player.setLastName(rs.getString("last_name"));
         player.setAge(rs.getInt("age"));
-        player.setPosition(rs.getString("player_position"));
 
         return player;
     }

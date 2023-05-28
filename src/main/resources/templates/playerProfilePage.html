@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Player Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .profile-image {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .profile-details {
+            margin-top: 20px;
+        }
+
+        .profile-details p {
+            margin: 10px 0;
+        }
+
+        .team-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #0000FF;
+            text-decoration: underline;
+        }
+
+        .team-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .team-details p {
+            margin: 10px 0;
+        }
+
+        .team-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        /* Styling for the statistics table */
+        .stats-table {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .stats-table th,
+        .stats-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .stats-table th {
+            background-color: #f2f2f2;
+        }
+
+        .stats-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Styling for additional statistics row */
+        .additional-row th,
+        .additional-row td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<header th:include="header.html"></header>
+<div class="container">
+    <h1>Player Profile</h1>
+    <img class="profile-image" th:src="${player.getPhotoUrl()}" alt="Player Photo">
+    <h2 class="profile-name" th:text="${player.getFirstName()} + ' ' + ${player.getLastName()}"></h2>
+    <div class="profile-details">
+        <p><strong>First Name:</strong> <span th:text="${player.getFirstName()}"></span></p>
+        <p><strong>Last Name:</strong> <span th:text="${player.getLastName()}"></span></p>
+    </div>
+    <div class="team-details">
+        <img class="team-logo" th:src="${player.getTeam().getPhotoUrl()}" alt="Team Logo">
+        <p><strong>Team Name:</strong> <span th:text="${player.getTeam().getName()}"></span></p>
+    </div>
+    <a class="team-link" th:href="@{'/players/' + ${player.getTeam().getId()}}">View Team</a>
+
+    <table class="stats-table">
+        <thead>
+        <tr>
+            <th>Appearances</th>
+            <th>Lineups</th>
+            <th>Minutes</th>
+            <th>Position</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${player.getStats().getAppearences()}"></td>
+            <td th:text="${player.getStats().getLineups()}"></td>
+            <td th:text="${player.getStats().getMinutes()}"></td>
+            <td th:text="${player.getStats().getPosition()}"></td>
+            <td th:text="${player.getStats().getRating()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="stats-table">
+        <tbody>
+        <tr class="additional-row">
+            <th>Goals</th>
+            <th>Assists</th>
+            <th>Yellow Cards</th>
+            <th>Red Cards</th>
+        </tr>
+        <tr>
+            <td th:text="${player.getStats().getGoals()}"></td>
+            <td th:text="${player.getStats().getAssists()}"></td>
+            <td th:text="${player.getStats().getYellowCards()}"></td>
+            <td th:text="${player.getStats().getRedCards()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

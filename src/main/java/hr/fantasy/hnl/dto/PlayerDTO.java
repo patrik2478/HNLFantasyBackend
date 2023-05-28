@@ -1,4 +1,4 @@
-package hr.fantasy.hnl.Dto;
+package hr.fantasy.hnl.dto;
 
 import lombok.Data;
 
@@ -13,6 +13,8 @@ public class PlayerDTO {
         this.lastName = lastName;
         this.age = age;
     }
+
+
 
     public PlayerDTO() {
     }
