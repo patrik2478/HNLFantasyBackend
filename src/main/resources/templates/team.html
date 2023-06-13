@@ -1,67 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Spring Boot Application</title>
+    <link href="/css/league.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        h4 {
-            color: #333;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .team-profile-link {
-            display: inline-block;
-            padding: 6px 12px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        {
+            cursor: url(/static/petkoviccur.cur), auto;
         }
     </style>
 </head>
 <body>
 <header th:include="header.html"></header>
-<h4>Team Data</h4>
+
+<h4>Last Gameweek</h4>
+<table id="fixturesTable">
+    <thead>
+    <tr>
+        <th>Home</th>
+        <th>Score</th>
+        <th>Away</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="fixture : ${fixtures}">
+        <td th:text="${fixture.getTeamScores().get('homeTeam')}"></td>
+        <td>
+            <span th:text="${fixture.getTeamScores().get('homeScore')}"></span> -
+            <span th:text="${fixture.getTeamScores().get('awayScore')}"></span>
+        </td>
+        <td th:text="${fixture.getTeamScores().get('awayTeam')}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Team Table</h4>
 <table>
     <thead>
     <tr>
         <th>Team Photo</th>
         <th>Team Name</th>
+        <th>Form</th>
+        <th>Goal Difference</th>
+        <th>Points</th>
         <th>Team Profile</th>
     </tr>
     </thead>
@@ -76,10 +58,22 @@
             </a>
         </td>
         <td>
+            <span class="form" th:text="${team.getForm()}"></span>
+        </td>
+        <td>
+            <span th:text="${team.getGoalsDif()}"></span>
+        </td>
+        <td>
+            <span th:text="${team.getPoints()}"></span>
+        </td>
+        <td>
             <a class="team-profile-link" th:href="@{'/players/' + ${team.getId()}}">Team Profile</a>
         </td>
     </tr>
     </tbody>
 </table>
+
 </body>
+<script>
+</script>
 </html>

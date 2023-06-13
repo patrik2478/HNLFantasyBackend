@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Header</title>
+  <style>
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+      padding: 10px;
+    }
+
+    .header-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-navigation {
+      display: flex;
+    }
+
+    .header-navigation li {
+      list-style-type: none;
+      margin-left: 10px;
+    }
+
+    .header-navigation a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="header-logo">
+    <a href="/">Home</a>
+  </div>
+  <ul class="header-navigation">
+    <li><a href="/login">Login</a></li>
+    <li><a href="/register">Register</a></li>
+  </ul>
+</header>
+</body>
+</html>

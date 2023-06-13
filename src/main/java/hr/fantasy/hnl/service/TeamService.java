@@ -11,4 +11,6 @@ import java.util.List;
 public interface TeamService {
 
     public List<Team> getAllTeams() throws IOException, InterruptedException, ParseException;
+    Team getTeamById(Long teamId) throws IOException, InterruptedException;
+
 }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Home Page</title>
+  <style>
+    body {
+      background-image: url('../background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .header {
+      background-image: url('../background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+      padding: 10px;
+    }
+
+    .header-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header-navigation {
+      display: flex;
+    }
+
+    .header-navigation li {
+      list-style-type: none;
+      margin-left: 10px;
+    }
+
+    .header-navigation a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .home-content {
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .league-card {
+      max-width: 600px;
+      padding: 40px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .league-photo {
+      max-width: 300px;
+      margin-bottom: 40px;
+    }
+
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .image-container img {
+      max-width: 400px;
+      margin: 0 20px;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .video-container iframe {
+      width: 600px;
+      height: 350px;
+    }
+
+    .login-link,
+    .register-link {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .login-link {
+      background-color: #007bff;
+    }
+
+    .register-link {
+      background-color: #28a745;
+    }
+
+  </style>
+</head>
+<body>
+<div class="home-content">
+  <div class="image-container">
+    <img th:src="@{/marko.jpeg}" alt="Marko Image">
+    <div class="league-card">
+      <img class="league-photo" th:if="${league.getPhotoUrl() != null}" th:src="${league.getPhotoUrl()}"
+           alt="League Photo">
+      <h1 class="league-name" th:text="${league.getName()}"></h1>
+      <a class="login-link" href="/login">Login</a>
+      <a class="register-link" href="/register">Register</a>
+    </div>
+    <img th:src="@{/bruno.jpg}" alt="Bruno Image">
+  </div>
+  <div class="video-container">
+    <iframe width="800" height="450" src="https://www.youtube.com/embed/WXJDo8kXquY" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+</body>
+</html>
